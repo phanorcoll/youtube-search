@@ -6,7 +6,17 @@ class App extends Component {
         return (
             <div className="container-fluid">
                 <SearchBar />
-                <VideoDetail />
+                <div className="content">
+               <div className="container">
+                    <div className="row">
+                        <VideoDetail />
+                        <div className="col-md-auto col2">
+                            Variable width content
+                        </div>
+                    </div>
+                </div>  
+            </div>
+               
                 
             </div>
         );
