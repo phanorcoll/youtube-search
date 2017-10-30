@@ -63,12 +63,12 @@ body {
             color: #B6B7BD;
             font-size: 20px;
             margin-top: 20px;
-        }
-        .col1 {
-            background: #ff99ff;
+            margin-bottom: 20px;
         }
         .col2 {
-            background: #cccccc;
+            background: #EBEBEB;
+            border-left: 1px solid #CAC7C7;
+            border-right: 1px solid #CAC7C7;
         }
         .video-title {
             color: #313131;
@@ -79,6 +79,21 @@ body {
         .video-description {
             color: #8C8787;
             font-size: 20px;
+        }
+        .video-list-title {
+            font-size: 20px;
+            text-transform: capitalize;
+            margin-top: 20px;
+            margin-bottom: 13px;
+        }
+        .video-item {
+            .title {
+                font-size: 15px;
+            }
+            .info {
+                font-size: 14px;
+                color: #8C8787;
+            }
         }
     }
 }
