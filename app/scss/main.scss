@@ -1,3 +1,56 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+$bar-bg:#2A2A2A;
+$padding-container: 0px;
+.container-fluid {
+    padding: $padding-container;
+}
+
 body {
     background: #fff
+}
+
+.top-bar {
+    padding: 10px 0px 10px 0px;
+    background: $bar-bg;
+    color: #cccccc;
+    i {
+        font-size: 35px;
+        margin-right: 10px;
+    }
+    .input-style {
+        flex: auto;
+        margin-left: 20px;
+        input {
+            padding-left: 15px;
+            background: #312F2F;
+            border: 1px solid #5E5E5E;
+            border-right: 0px;
+            width: 20%;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            transition: all .5s ease;
+        }
+        input:focus {
+            width: 50%;
+            background: #fff;
+            outline: 0;
+            color: #212529;
+        }
+        .input-group-addon {
+            padding: 0.375rem 0.75rem;
+            margin-bottom: 0;
+            /* font-size: 1rem; */
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            text-align: center;
+            background-color: #312F2F;
+            border: 1px solid #5E5E5E;
+            border-radius: 0;
+            border-left: 0px;
+        }
+        i {
+            font-size: 20px;
+        }
+    }
 }
