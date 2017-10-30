@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 export default class VideoDetail extends Component {
     render() {
         return (
-            <div className="col">
+            <div className="col-md-9">
                 <h2>Video Details</h2>
-                <img src="https://dummyimage.com/900x500/000/fff" alt="" />
+                <img src="https://dummyimage.com/800x500/000/fff" alt="" />
                 <div className="video-title">
                     Methode Technology Hall Intro
                 </div>
