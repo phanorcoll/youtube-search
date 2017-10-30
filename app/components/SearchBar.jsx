@@ -5,6 +5,7 @@ export default class SearchBar extends Component {
     render(){
         return (
         <div className="top-bar">
+            <div className="container">
             <nav className="navbar">
                 <div className="navbar-brand" href="#">
                 <i className="fa fa-youtube" aria-hidden="true"></i>
@@ -19,6 +20,7 @@ export default class SearchBar extends Component {
                     </div>
                 </div>
             </nav>
+            </div>
         </div>
     );
     }
