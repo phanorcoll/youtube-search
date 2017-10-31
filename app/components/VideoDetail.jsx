@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 
 export default class VideoDetail extends Component {
+    constructor(props) {
+        super(props)
+
+    }
     render() {
+        if (!this.props.video){
+            return <div>Loading..</div>
+        }
+
+        let title = this.props.video.snippet.title
+        let description = this.props.video.snippet.description
+        let videoId = this.props.video.id.videoId
+        let url = `https://www.youtube.com/embed/${videoId}`
         return (
             <div className="col-md-9">
                 <h2>Video Details</h2>
-                <img src="https://dummyimage.com/800x500/000/fff" alt="" />
+                <div className="embed-responsive embed-responsive-16by9">
+                    <iframe className="embed-responsive-item" src={url}></iframe>
+                </div>
                 <div className="video-title">
-                    Methode Technology Hall Intro
+                    {title}
                 </div>
                 <div className="video-description">
                     <p>
-                       Scientific research shows this is a great way to immediately increase happiness. You can do it anywhere and it does not cost anything. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                       {description}
                     </p>
                 </div>
             </div>

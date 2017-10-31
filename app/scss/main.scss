@@ -86,13 +86,13 @@ body {
             margin-top: 20px;
             margin-bottom: 13px;
         }
-        .video-item {
-            .title {
-                font-size: 15px;
-            }
-            .info {
-                font-size: 14px;
-                color: #8C8787;
+        .list-group-item {
+            margin-bottom: 10px;
+            cursor: pointer;
+            .video-item {
+                .title {
+                    font-size: 15px;
+                }
             }
         }
     }
