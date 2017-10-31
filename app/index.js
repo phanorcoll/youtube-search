@@ -6,7 +6,6 @@ import style from './scss/main.scss'
 
 
 
-ReactDom.render( <
-    App text = "testing Reactjs with jsx configuration" / > ,
+ReactDom.render( < App / > ,
     document.getElementById('app')
 )
