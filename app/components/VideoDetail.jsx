@@ -17,7 +17,7 @@ export default class VideoDetail extends Component {
         return (
             <div className="col-md-9">
                 <h2>Video Details</h2>
-                <div className="embed-responsive embed-responsive-16by9">
+                <div className="embed-responsive embed-responsive-4by3">
                     <iframe className="embed-responsive-item" src={url}></iframe>
                 </div>
                 <div className="video-title">
