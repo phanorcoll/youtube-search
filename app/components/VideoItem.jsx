@@ -7,25 +7,25 @@ export default class VideoItem extends Component {
 
     }
     render() {
-        let video=this.props.video
-        let title = video.snippet.title
-        let thumbnail =video.snippet.thumbnails.default.url
-        let onVideoSelect=this.props.onVideoSelect
+        let title = this.props.video.snippet.title
+        let thumbnail =this.props.video.snippet.thumbnails.high.url
+        let channel =this.props.video.snippet.channelTitle
         return (
-            <li onClick={()=>onVideoSelect(video)} className="list-group-item">
-                <div className="video-item">
-                    <div className="row">
-                        <div className="col-md-5">
-                            <img src={thumbnail} alt="" />
+            <div className="col">
+                <div className="video-thumb-wrapper">
+                    <figure>
+                        <img src={thumbnail} width="257px" height="424px" alt="" />
+                        <img src="images/play-icon.png" className="play" alt="" />
+                    </figure>
+                    <div className="video-title">
+                        {title}
                         </div>
-                        <div className="col-md-7">
-                            <div className="title">
-                                {title}
-                            </div>
-                        </div>
+                    <div className="video-channel">
+                        <img src="images/channel-icon.png" alt="" />
+                        <div className="channel-name">{channel}</div>
                     </div>
                 </div>
-            </li>
+            </div>
         );
     }
 }
