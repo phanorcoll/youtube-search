@@ -69,9 +69,14 @@ body {
             .item {
                 width: 157px;
                 cursor: pointer;
+                height: 100%;
+                padding: 6px;
+                background: $thumbnail-background;
+                -webkit-transition: background-color 200ms linear;
+                -ms-transition: background-color 200ms linear;
+                transition: background-color 200ms linear;
                 .title {
                     font-size: 15px;
-                    color: $font-color;
                     padding-top: 0px;
                     height: 90px;
                 }
@@ -98,6 +103,8 @@ body {
                 }
             }
             .item:hover {
+                background: $hover-color;
+                color: #fff;
                 figure img {
                     -webkit-transform: scale(1.3);
                     transform: scale(1.3);
