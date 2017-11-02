@@ -70,6 +70,10 @@ a {
             .col-md-2 {
                 margin-right: 30px;
             }
+            .active {
+                background: $hover-color!important;
+                color: #fff;
+            }
             .item {
                 width: 157px;
                 cursor: pointer;

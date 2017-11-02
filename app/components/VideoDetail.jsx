@@ -52,8 +52,10 @@ export default class VideoDetail extends Component {
             return <VideoItemSmall
                 key={video.etag}
                 video={video}
+                videoId={videoId}
                 videos={this.state.videos}
                 term={this.state.term}
+                selectedVideo={this.state.selectedVideo}
                 onVideoSelect={selectedVideo =>this.setState({selectedVideo})}
             />
         })
@@ -62,6 +64,7 @@ export default class VideoDetail extends Component {
             <div>
                 <SearchBar onSearchTermChange={videoSearch} />
                 <div className="list-title-wrapper2">
+                {videoId}
                     <img src={SearchResultIcon} alt="youtube search" />
                     <div className="title">Search results for <span className="term">- {this.state.term} -</span></div>
                     <div className="small-video-list-wrapper">

@@ -6,7 +6,6 @@ export default class VideoItemSmall extends Component {
         super(props)
 
         this.state = {
-            videoId: null,
             videos: []
 
         }
@@ -20,7 +19,7 @@ export default class VideoItemSmall extends Component {
         let onVideoSelect=this.props.onVideoSelect
         return (
             <div className="col-md-2">
-                <div className="item"  onClick={()=>onVideoSelect(video)}>
+                <div className={video.id.videoId=== this.props.videoId ? 'item active': 'item'} key={video.etag}  onClick={()=>onVideoSelect(video)}>
                     <figure>
                         <img src={thumbnail} alt="" className="thumbnail" width="157px" height="212px" />
                     </figure>
@@ -30,7 +29,7 @@ export default class VideoItemSmall extends Component {
                         <div className="channel-name">{channel}</div>
                     </div>
                 </div>
-            </div>
+                </div>
         )
     }
 }
