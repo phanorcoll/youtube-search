@@ -13,23 +13,20 @@ export default class VideoList extends Component {
 
         this.state = {
             videos: [],
-            term:'reactjs',
-            selectedVideo: null
+            term: 'reactjs'
         }
 
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.videoSearch(this.state.term)
     }
 
     videoSearch = (term) => {
         YTSearch({ key: API_KEY, term: term }, (videos) => {
-            console.log(videos)
             this.setState({
                 videos: videos,
-                term: term,
-                selectedVideo: videos[0]
+                term: term
             })
         })
     }
@@ -39,7 +36,8 @@ export default class VideoList extends Component {
             return <VideoItem
                 key={video.etag}
                 video={video}
-            //onVideoSelect={this.props.onVideoSelect}
+                videos={this.state.videos}
+                term={this.state.term}
             />
         })
         let videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300)

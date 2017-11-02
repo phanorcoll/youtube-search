@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VideoList from './VideoList.jsx';
+import VideoDetail from './VideoDetail.jsx';
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -13,6 +14,7 @@ export default class App extends Component {
                 <div className='container'>
                     <Switch>
                         <Route exact path='/' component={VideoList} />
+                        <Route exact path='/detail' component={VideoDetail} />
                         {/* <Route exact path='/battle' component={Battle} />
                         <Route path='/battle/results' component={Results} />
                         <Route path='/popular' component={Popular} /> */}

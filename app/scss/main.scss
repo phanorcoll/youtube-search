@@ -38,7 +38,8 @@ body {
             border-left: 0px;
         }
     } //latest videos title styles
-    .list-title-wrapper {
+    .list-title-wrapper,
+    .list-title-wrapper2 {
         margin-top: 50px;
         padding-bottom: 45px;
         border-bottom: 1px solid #C1C1C1;
@@ -54,11 +55,60 @@ body {
             font-size: 30px;
             padding-top: 14px;
         }
+    }
+    .list-title-wrapper2 {
+        .title {
+            font-size: 20px;
+            padding-top: 7px;
+        }
+        .small-video-list-wrapper {
+            margin-top: 30px;
+            .col-md-2 {
+                margin-right: 30px;
+            }
+            .item {
+                width: 157px;
+                cursor: pointer;
+                .title {
+                    font-size: 15px;
+                    color: $font-color;
+                    padding-top: 0px;
+                    height: 90px;
+                }
+                .video-channel {
+                    margin-top: 15px;
+                    .channel-name {
+                        font-size: 12px;
+                    }
+                }
+                figure {
+                    overflow: hidden;
+                    position: relative;
+                    .thumbnail {
+                        width: 157px;
+                        height: 212px;
+                    }
+                }
+                figure img {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                    -webkit-transition: .3s ease-in-out;
+                    transition: .3s ease-in-out;
+                    z-index: 1;
+                }
+            }
+            .item:hover {
+                figure img {
+                    -webkit-transform: scale(1.3);
+                    transform: scale(1.3);
+                }
+            }
+        }
     } //video item styles
     .video-list-wrapper,
     .small-video-list-wrapper {
-        .row {
-            padding: 15px;
+        a:hover {
+            text-decoration: none;
         }
         .video-thumb-wrapper {
             margin: 25px auto;
