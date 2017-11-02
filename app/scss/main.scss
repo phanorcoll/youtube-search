@@ -119,7 +119,17 @@ a {
                 }
             }
         }
-    } //video item styles
+    }
+    .embed-responsive {
+        width: 823px;
+        height: 625px;
+        margin: 45px auto;
+    }
+    .detail-video-title {
+        font-size: 35px;
+        margin-top: 40px;
+    }
+    //video item styles
     .video-list-wrapper,
     .small-video-list-wrapper {
         a:hover {
@@ -184,6 +194,9 @@ a {
                 opacity: 1;
             }
         }
+    }
+    .video-description img {
+        margin-bottom: 10px;
     }
     footer {
         height: 50px;

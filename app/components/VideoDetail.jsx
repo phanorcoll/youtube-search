@@ -3,7 +3,10 @@ import SearchBar from './SearchBar.jsx';
 import YTSearch from 'youtube-api-search'
 import _ from 'lodash';
 import SearchResultIcon from '../images/search-result.png';
+import ChannelIcon from '../images/channel-icon.png';
+import DescriptionIcon from '../images/info-icon.png';
 import VideoItemSmall from './VideoItemSmall.jsx';
+
 const API_KEY = "AIzaSyAP4MjDGCpmfQT0-hTDHvqMuWuQDb2FiO8";
 
 export default class VideoDetail extends Component {
@@ -12,7 +15,7 @@ export default class VideoDetail extends Component {
 
         this.state = {
             videos: [],
-            term:'',
+            term: '',
             selectedVideo: []
         }
 
@@ -27,7 +30,7 @@ export default class VideoDetail extends Component {
             }
         })
     }
-    
+
 
     videoSearch = (term) => {
         YTSearch({ key: API_KEY, term: term }, (videos) => {
@@ -40,7 +43,7 @@ export default class VideoDetail extends Component {
     }
 
     render() {
-        
+        let channel = this.state.selectedVideo.snippet.channelTitle
         let title = this.state.selectedVideo.snippet.title
         let description = this.state.selectedVideo.snippet.description
         let videoId = this.state.selectedVideo.id.videoId
@@ -56,7 +59,7 @@ export default class VideoDetail extends Component {
                 videos={this.state.videos}
                 term={this.state.term}
                 selectedVideo={this.state.selectedVideo}
-                onVideoSelect={selectedVideo =>this.setState({selectedVideo})}
+                onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
             />
         })
 
@@ -64,24 +67,27 @@ export default class VideoDetail extends Component {
             <div>
                 <SearchBar onSearchTermChange={videoSearch} />
                 <div className="list-title-wrapper2">
-                {videoId}
                     <img src={SearchResultIcon} alt="youtube search" />
                     <div className="title">Search results for <span className="term">- {this.state.term} -</span></div>
                     <div className="small-video-list-wrapper">
-                    <div className="row">
-                        {videoItemsSmall}
+                        <div className="row">
+                            {videoItemsSmall}
+                        </div>
+                    </div>
+                    <div className="detail-video-title">
+                        {title}
+                    </div>
+                    <div className="video-channel">
+                        <img src={ChannelIcon} alt="" />
+                        <div className="channel-name">{channel}</div>
                     </div>
                 </div>
+                <div className="embed-responsive embed-responsive-4by3">
+                    <iframe className="embed-responsive-item" src={url}></iframe>
                 </div>
-                
 
-                {/* <div className="embed-responsive embed-responsive-4by3">
-                    <iframe className="embed-responsive-item"></iframe>
-                </div> */}
-                <div className="video-title">
-                    {title}
-                </div>
                 <div className="video-description">
+                    <img src={DescriptionIcon} alt="" />
                     <p>
                         {description}
                     </p>
