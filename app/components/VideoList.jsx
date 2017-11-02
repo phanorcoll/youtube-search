@@ -19,10 +19,10 @@ export default class VideoList extends Component {
     }
 
     componentDidMount() {
-        this.videoSearch(this.state.term)
+        this.handleVideoSearch(this.state.term)
     }
 
-    videoSearch = (term) => {
+    handleVideoSearch = (term) => {
         YTSearch({ key: API_KEY, term: term }, (videos) => {
             this.setState({
                 videos: videos,
@@ -40,7 +40,7 @@ export default class VideoList extends Component {
                 term={this.state.term}
             />
         })
-        let videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300)
+        let videoSearch = _.debounce((term) => { this.handleVideoSearch(term) }, 300)
         return (
             <div>
                 <SearchBar onSearchTermChange={videoSearch} />
