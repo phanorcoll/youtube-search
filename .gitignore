@@ -3,5 +3,3 @@ html
 dist
 design
 package-lock.json
-.firebaserc
-firebase.json
