@@ -1,52 +1,31 @@
-import React,{ Component } from 'react';
-import SearchBar from './SearchBar.jsx';
+import React, { Component } from 'react';
+import VideoList from './VideoList.jsx';
 import VideoDetail from './VideoDetail.jsx';
-import VideoList from './VideoList.jsx'
-import YTSearch from 'youtube-api-search'
-import _ from 'lodash';
+var ReactRouter = require('react-router-dom');
+var Router = ReactRouter.BrowserRouter;
+var Route = ReactRouter.Route;
+var Switch = ReactRouter.Switch;
 
-const API_KEY = "";
 
-class App extends Component {
-    constructor(props){
-        super(props)
-
-        this.state={
-            videos:[],
-            selectedVideo: null
-        }
-
-        this.videoSearch("reactjs")
-    }
-
-    videoSearch = (term) =>{
-        YTSearch({key:API_KEY,term:term},(videos)=>{
-            this.setState({
-                videos:videos,
-                selectedVideo:videos[0]
-            })
-        })
-    }
-    
+export default class App extends Component {
     render() {
-        let videoSearch =_.debounce((term)=>{this.videoSearch(term)},300)
         return (
-            <div className="container-fluid">
-                <SearchBar onSearchTermChange={videoSearch} />
-                <div className="content">
-                    <div className="container">
-                        <div className="row">
-                            <VideoDetail video={this.state.selectedVideo} />
-                            <VideoList 
-                                onVideoSelect={selectedVideo =>this.setState({selectedVideo})} 
-                                videos={this.state.videos} 
-                            />
+            <Router>
+                <div className='container'>
+                    <Switch>
+                        <Route exact path='/' component={VideoList} />
+                        <Route exact path='/detail' component={VideoDetail} />
+                        <Route render={function () {
+                            return <p>Not Found!</p>
+                        }} />
+                    </Switch>
+                    <footer>
+                        <div className="footer-info">
+                            dev by <a href="http://www.phanorcoll.com">Phanor Coll</a>
                         </div>
-                    </div>  
+                    </footer>
                 </div>
-            </div>
+            </Router>
         );
     }
 }
-
-export default App

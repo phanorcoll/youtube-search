@@ -1,36 +1,59 @@
 import React, { Component } from 'react';
+import SearchBar from './SearchBar.jsx';
 import VideoItem from './VideoItem.jsx';
-import PropTypes from 'prop-types';
+import VideoIcon from '../images/video-icon.png';
+import YTSearch from 'youtube-api-search'
+import _ from 'lodash';
 
-export default class VideoList extends Component{
+const API_KEY = "AIzaSyAP4MjDGCpmfQT0-hTDHvqMuWuQDb2FiO8";
+
+export default class VideoList extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            videos: [],
+            term: 'reactjs'
+        }
+
     }
 
-    render(){
-        let videos = this.props.videos.length
-        let videoItems =this.props.videos.map((video)=>{
-            return <VideoItem 
-                key={video.etag} 
+    componentDidMount() {
+        this.handleVideoSearch(this.state.term)
+    }
+
+    handleVideoSearch = (term) => {
+        YTSearch({ key: API_KEY, term: term }, (videos) => {
+            this.setState({
+                videos: videos,
+                term: term
+            })
+        })
+    }
+
+    render() {
+        let videoItems = this.state.videos.map((video) => {
+            return <VideoItem
+                key={video.etag}
                 video={video}
-                onVideoSelect={this.props.onVideoSelect}
+                videos={this.state.videos}
+                term={this.state.term}
             />
         })
-        return(
-            <div className="col-md-3 col2">
-                <div className="video-list-title">
-                    Search results
+        let videoSearch = _.debounce((term) => { this.handleVideoSearch(term) }, 300)
+        return (
+            <div>
+                <SearchBar onSearchTermChange={videoSearch} />
+                <div className="list-title-wrapper">
+                    <img src={VideoIcon} alt="youtube search" />
+                    <div className="title">Latest videos for <span className="term">- {this.state.term} -</span></div>
                 </div>
-                <ul className="list-group">
-                    {videoItems}
-                </ul>
-                
+                <div className="video-list-wrapper">
+                    <div className="row">
+                        {videoItems}
+                    </div>
+                </div>
             </div>
         );
     }
-}
-
-VideoList.propTypes ={
-    videos: PropTypes.array.isRequired
 }
