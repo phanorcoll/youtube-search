@@ -47,7 +47,7 @@ export default class VideoList extends Component {
             <div>
                 <SearchBar onSearchTermChange={videoSearch} />
                 <div className="list-title-wrapper">
-                    <img src={VideoIcon} alt="" />
+                    <img src={VideoIcon} alt="youtube search" />
                     <div className="title">Latest videos for <span className="term">- {this.state.term} -</span></div>
                 </div>
                 <div className="video-list-wrapper">

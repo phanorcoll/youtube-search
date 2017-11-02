@@ -63,8 +63,8 @@ body {
         .video-thumb-wrapper {
             margin: 25px auto;
             cursor: pointer;
-            width: 267px;
-            height: 570px;
+            width: 360px;
+            height: 475px;
             background: $thumbnail-background;
             padding: 8px;
             -webkit-transition: background-color 200ms linear;
@@ -73,6 +73,17 @@ body {
             figure {
                 overflow: hidden;
                 position: relative;
+                .thumbnail {
+                    width: 360px;
+                    height: 320px;
+                }
+                .play {
+                    z-index: 3;
+                    position: absolute;
+                    top: 35%;
+                    left: 37%;
+                    opacity: 0;
+                }
             }
             figure img {
                 -webkit-transform: scale(1);
@@ -81,16 +92,10 @@ body {
                 transition: .3s ease-in-out;
                 z-index: 1;
             }
-            figure .play {
-                z-index: 3;
-                position: absolute;
-                top: 35%;
-                left: 30%;
-                opacity: 0;
-            }
             .video-title {
                 font-size: 13px;
                 margin-top: 15px;
+                height: 40px;
             }
             .video-channel {
                 text-align: right;
