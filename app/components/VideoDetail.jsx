@@ -31,7 +31,6 @@ export default class VideoDetail extends Component {
 
     videoSearch = (term) => {
         YTSearch({ key: API_KEY, term: term }, (videos) => {
-            console.log(videos)
             this.setState({
                 videos: videos,
                 term: term,
