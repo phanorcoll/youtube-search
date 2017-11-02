@@ -7,7 +7,7 @@ import ChannelIcon from '../images/channel-icon.png';
 import DescriptionIcon from '../images/info-icon.png';
 import VideoItemSmall from './VideoItemSmall.jsx';
 
-const API_KEY = "AIzaSyAP4MjDGCpmfQT0-hTDHvqMuWuQDb2FiO8";
+const API_KEY = "";
 
 export default class VideoDetail extends Component {
     constructor(props) {

@@ -5,7 +5,7 @@ import VideoIcon from '../images/video-icon.png';
 import YTSearch from 'youtube-api-search'
 import _ from 'lodash';
 
-const API_KEY = "AIzaSyAP4MjDGCpmfQT0-hTDHvqMuWuQDb2FiO8";
+const API_KEY = "";
 
 export default class VideoList extends Component {
     constructor(props) {
