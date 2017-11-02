@@ -9,10 +9,8 @@ export default class SearchBar extends Component {
     }
 
     handleTermChange = (term) => {
-        //e.preventDefault()
         this.setState({ term })
         this.props.onSearchTermChange(term)
-        //console.log(this.state.term)
     }
 
     render() {
