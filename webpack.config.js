@@ -23,12 +23,7 @@ var config = {
             test: /\.(png|svg|jpe?g|gif)/,
             use: [
                 'file-loader?name=[name].[ext]&outputPath=images/',
-                {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 25000,
-                    }
-                },
+
                 {
                     loader: 'image-webpack-loader',
                     options: {
@@ -36,7 +31,7 @@ var config = {
                             interlaced: false,
                         },
                         optipng: {
-                            optimizationLevel: 5,
+                            optimizationLevel: 4,
                         },
                         pngquant: {
                             quality: '80-90',
